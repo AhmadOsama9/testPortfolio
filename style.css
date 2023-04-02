@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --header-bg-color: #f0f0f0;
+    --header-color: rgb(30, 30, 106);
+    --hover-color: black;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*cause the default is content-box which 
+    doesn't count them along with 100% */
+    scroll-behavior: smooth;
+}
+
+header {
+    background: var(--header-bg-color);
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(0.1rem, 1vw + 1rem, 2rem); 
+    
+  }
+  
+
+.logo{
+    text-decoration: none;
+    color: var(--header-color);
+    text-transform: uppercase;
+    font-weight: clamp(0.5rem, 1vw + 1rem, 7rem);
+    font-size: clamp(0.1rem, 1vw + 1rem, 7rem);
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--header-color);
+    font-weight: clamp(0.5rem, 1vw + 1rem, 2rem);
+    font-size: clamp(0.05rem, 1vw + 1rem, 2rem); /* Use clamp to set font-size between 1.5rem and 2.5rem, with a preferred value of 2vw + 1rem */
+    padding: clamp(0.01rem, 1vw + 1rem, 2rem);
+  }
+
+  @media only screen and (max-width: 600px){
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+  @media only screen and (max-width: 390px){
+    .nav a{
+        padding: 5px;
+    }
+  }
+  
+  .nav a:hover {
+    color: var(--hover-color);
+  }
+  
+  section {
+    padding: clamp(0.5rem, 2vw + 1rem, 3rem);
+  }
+  
+  .main {
+    width: 100%;
+    min-height: 120vh;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(0.01rem, 1vw, 2rem);
+    /* background: url();
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; */
+  }
+  
+
+  .main h2 {
+    color: var(--header-color);
+    font-size: clamp(1.3rem, 2vw + 1rem, 2rem); /* Use clamp to set font-size between 1.3rem and 2rem, with a preferred value of 2vw + 1rem */
+    font-weight: bold;
+  }
+  
+  .main h2 span {
+    display: inline-block;
+    margin-top: clamp(5px, 1vw, 10px); /* Use clamp to set margin-top between 5px and 10px, with a preferred value of 1vw */
+    color: var(--header-color);
+    font-size: clamp(2.3rem, 4vw + 1rem, 3rem); /* Use clamp to set font-size between 2.3rem and 3rem, with a preferred value of 4vw + 1rem */
+    font-weight: bold;
+  }
+  
+  .main h3 {
+    color: var(--header-color);
+    font-size: clamp(1.2rem, 2vw + 1rem, 2rem); /* Use clamp to set font-size between 1.5rem and 2.5rem, with a preferred value of 2vw + 1rem */
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    margin-top: clamp(10px, 2vw, 20px); /* Use clamp to set margin-top between 10px and 20px, with a preferred value of 2vw */
+    margin-bottom: clamp(10px, 2vw, 20px); /* Use clamp to set margin-bottom between 10px and 20px, with a preferred value of 2vw */
+    text-align: center;
+  }
+  
+
+  .view_pro_btn{
+    text-decoration: none;
+    display: inline-block;
+    color: var(--header-color);
+    background-color: var(--header-bg-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 1rem;
+    letter-spacing: 1px;
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+    transition: 0.7s ease;
+}
+
+.view_pro_btn:hover{
+    background: #110111;
+    color: #f0f0f0;
+    transform: scale(1.2);
+}
+
+.contact_icons a{
+    color: #110111;
+    font-size: 2rem;
+    padding-right: 3rem;
+}
+
+.title{
+    display:flex;
+    justify-content: center;
+    font-size: 2.3em;
+    font-weight: 2.3em;
+    color: var(--header-color);
+    margin-bottom: 4rem;
+}
+
+
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: 0.7s ease;
+  }
+  
+  .card{
+    background: #f0f0f0;
+    width: clamp(280px, min(21.25vw, 100%), 100%);
+    box-shadow: 0 5px 25px rgba(1 1 1/ 15%);
+    padding: clamp(20px, min(5vw, 2.5rem), 50px) clamp(20px, min(5vw, 2.5rem), 50px);
+    margin: clamp(15px, min(2vw, 1.25rem), 30px);
+    border-radius: clamp(10px, min(1.5vw, 1rem), 25px);
+  }
+  
+  .card:hover{
+    transform: scale(1.1);
+  }
+  
+  .icon{
+    color: var(--header-color);
+    text-align: center;
+    font-size: clamp(5rem, min(15vw, 8em), 25rem);
+  }
+  
+
+  .info{
+    text-align: center;
+}
+
+.info h3{
+    color: var(--header-color);
+    font-size: clamp(1.2em, 1.5vw, 2em);
+    font-weight: 700;
+    margin: 10px;
+}
+
+.projects{
+    background: #110111;
+}
+
+
+.projects .content{
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 50px);
+}
+
+.project_card{
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    min-height: min(14em, calc(20vw - 40px));
+    width: clamp(15em, 23vw, 30em);
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+.project_card:hover{
+    transform: scale(1.1);
+}
+
+.project_card .project_img:hover{
+    opacity: 0.9;
+}
+
+.project_img img{
+    width: 100%;
+}
+
+.project_info{
+    padding: 10px;
+}
+
+.project_category{
+    font-size: clamp(0.8em, 1vw, 1.2em);
+    color: #110111;
+}
+
+
+.project_details{
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: clamp(10px, 2vw, 20px);
+}
+
+.project_details a{
+    text-decoration: none;
+    color: var(--header-color);
+}
+
+.project_details a:hover{
+    background: #fff;
+    color: #110111;
+}
+
+.contact .icon{
+    font-size: min(4.5em, 10vw);
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    color: #110111;
+    background: #a2a2a2;
+    padding: clamp(10px, 2vw, 20px);
+}
+
+.footer_title{
+    font-size: clamp(1.3em, 2vw, 2.5em);
+    font-weight: 600;
+}
+
+.footer_title span{
+    color: var(--header-color);
+}
+
+.footer .contact_icons a{
+    color: #f0f0f0;
+}
