@@ -40,3 +40,5 @@ const updateMenu = () => {
 document.addEventListener('scroll', () => {
     updateMenu();
 });
+
+//just a comment to test re-pushing to github
