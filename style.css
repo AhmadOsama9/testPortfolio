@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
-    --header-bg-color: #f0f0f0;
-    --header-color: rgb(30, 30, 106);
-    --hover-color: black;
+  --primary-color: #5c5cff;
+  --secondary-color: #1a1a1a;
+  --tertiary-color: #e6b3ff;
+  --bg-color: #dcdcdc;
+  --bg-color-secondary: #115155;
+  --hover-color: #f3f3f3;
+  --bg-hover-color: black;
 }
+
 
 *{
     font-family: 'Poppins', sans-serif;
@@ -17,7 +22,7 @@
 }
 
 header {
-    background: var(--header-bg-color);
+    background: var(--bg-color);
     width: 100%;
     position: fixed;
     z-index: 999;
@@ -25,93 +30,181 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: clamp(0.1rem, 1vw + 1rem, 2rem); 
-    
+    top:0;
   }
   
 
 .logo{
     text-decoration: none;
-    color: var(--header-color);
+    color: var(--primary-color);
     text-transform: uppercase;
-    font-weight: clamp(0.5rem, 1vw + 1rem, 7rem);
-    font-size: clamp(0.1rem, 1vw + 1rem, 7rem);
+    font-weight: clamp(1rem, 5rem + 2vh, 7rem);
+    font-size: clamp(1rem, 1rem + 2vh, 7rem);
 }
 
 .nav a {
     text-decoration: none;
-    color: var(--header-color);
+    color: var(--primary-color);
     font-weight: clamp(0.5rem, 1vw + 1rem, 2rem);
     font-size: clamp(0.05rem, 1vw + 1rem, 2rem); /* Use clamp to set font-size between 1.5rem and 2.5rem, with a preferred value of 2vw + 1rem */
     padding: clamp(0.01rem, 1vw + 1rem, 2rem);
-  }
-
-  @media only screen and (max-width: 600px){
-    header{
-        display: flex;
-        flex-direction: column;
-    }
-  }
-
-  @media only screen and (max-width: 390px){
-    .nav a{
-        padding: 5px;
-    }
-  }
+}
   
-  .nav a:hover {
+.nav a:hover {
+    background-color: var(--bg-hover-color);
     color: var(--hover-color);
-  }
+    border-radius: 25%;
+}
   
-  section {
+section {
     padding: clamp(0.5rem, 2vw + 1rem, 3rem);
-  }
+}
   
-  .main {
+.main {
     width: 100%;
-    min-height: 120vh;
+    min-height: 100vh;
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: clamp(0.01rem, 1vw, 2rem);
+    padding: clamp(0.5rem, 2vw + 1rem, 3rem);
+    padding-bottom: 0;
     /* background: url();
     background-size: cover;
     background-position: center;
     background-attachment: fixed; */
-  }
+}
   
 
-  .main h2 {
-    color: var(--header-color);
+.main h2 {
+    color: var(--primary-color);
     font-size: clamp(1.3rem, 2vw + 1rem, 2rem); /* Use clamp to set font-size between 1.3rem and 2rem, with a preferred value of 2vw + 1rem */
     font-weight: bold;
-  }
+}
   
-  .main h2 span {
+.main h2 span {
     display: inline-block;
     margin-top: clamp(5px, 1vw, 10px); /* Use clamp to set margin-top between 5px and 10px, with a preferred value of 1vw */
-    color: var(--header-color);
+    color: var(--primary-color);
     font-size: clamp(2.3rem, 4vw + 1rem, 3rem); /* Use clamp to set font-size between 2.3rem and 3rem, with a preferred value of 4vw + 1rem */
     font-weight: bold;
-  }
+}
   
-  .main h3 {
-    color: var(--header-color);
+.main h3 {
+    color: var(--secondary-color);
     font-size: clamp(1.2rem, 2vw + 1rem, 2rem); /* Use clamp to set font-size between 1.5rem and 2.5rem, with a preferred value of 2vw + 1rem */
     font-weight: bold;
     letter-spacing: 0.01em;
     margin-top: clamp(10px, 2vw, 20px); /* Use clamp to set margin-top between 10px and 20px, with a preferred value of 2vw */
     margin-bottom: clamp(10px, 2vw, 20px); /* Use clamp to set margin-bottom between 10px and 20px, with a preferred value of 2vw */
-    text-align: center;
-  }
-  
+}
 
-  .view_pro_btn{
+.active-section {
+  background: linear-gradient(to bottom, var(--bg-color-secondary), var(--primary-color));
+  color: #f3f3f3 !important;
+  border-radius: 20%;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+.navbar-toggle{
+    cursor: pointer;
+    display: none;
+}
+
+.navbar-toggle span{
+    display: block;
+    width: 3vw;
+    height: 3vh;
+    margin: 1% 0;
+    background-color:#110111;
+}
+
+@media only screen and (max-width: 800px){
+    
+.nav{
+    display: none;
+}
+
+.navbar-toggle{
+    display: block;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    align-items: center;
+}
+
+.navbar-toggle span{
+  display: block;
+  height: 1vh;
+  width: 10vw;
+  margin: 1vh auto;
+  background-color: var(--secondary-color);
+}
+
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(90deg) translate(2vh, 1.5vh);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(90deg) translate(-2vh, -1.5vh);
+}
+.nav.active{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-hover-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
+
+.nav.active a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.nav.active a:hover{
+  background-color: var(--primary-color);
+  color: var(--hover-color);
+  border-radius: 25%;
+  width: fit-content;
+}
+
+}
+
+@media only screen and (max-width: 360px) {
+  .main.active{
+    margin-top: 50%;
+  }
+}
+@media only screen and ((min-width: 0px) and (max-width: 600px)) {
+  .main.active{
+    margin-top: 30%;
+  }
+}
+@media only screen and ((min-width:600px) and (max-width: 800px)) {
+  .main.active{
+    margin-top: 20%;
+  }
+}
+
+
+
+.view_pro_btn{
     text-decoration: none;
     display: inline-block;
-    color: var(--header-color);
-    background-color: var(--header-bg-color);
+    color: var(--primary-color);
+    background-color: var(--bg-color);
     font-size: 1.1em;
     font-weight: 600;
     padding: 1rem;
@@ -122,13 +215,13 @@ header {
 }
 
 .view_pro_btn:hover{
-    background: #110111;
-    color: #f0f0f0;
+    background: var(--bg-hover-color);
+    color: var(--hover-color);
     transform: scale(1.2);
 }
 
 .contact_icons a{
-    color: #110111;
+    color: var(--tertiary-color);
     font-size: 2rem;
     padding-right: 3rem;
 }
@@ -138,7 +231,7 @@ header {
     justify-content: center;
     font-size: 2.3em;
     font-weight: 2.3em;
-    color: var(--header-color);
+    color: var(--primary-color);
     margin-bottom: 4rem;
 }
 
@@ -149,41 +242,41 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     transition: 0.7s ease;
-  }
+}
   
-  .card{
-    background: #f0f0f0;
+.card{
+    background: var(--bg-color);
     width: clamp(280px, min(21.25vw, 100%), 100%);
     box-shadow: 0 5px 25px rgba(1 1 1/ 15%);
     padding: clamp(20px, min(5vw, 2.5rem), 50px) clamp(20px, min(5vw, 2.5rem), 50px);
     margin: clamp(15px, min(2vw, 1.25rem), 30px);
     border-radius: clamp(10px, min(1.5vw, 1rem), 25px);
-  }
+}
   
-  .card:hover{
+.card:hover{
     transform: scale(1.1);
-  }
+}
   
-  .icon{
-    color: var(--header-color);
+.icon{
+    color: var(--primary-color);
     text-align: center;
     font-size: clamp(5rem, min(15vw, 8em), 25rem);
-  }
+}
   
 
-  .info{
+.info{
     text-align: center;
 }
 
 .info h3{
-    color: var(--header-color);
+    color: var(--primary-color);
     font-size: clamp(1.2em, 1.5vw, 2em);
     font-weight: 700;
     margin: 10px;
 }
 
 .projects{
-    background: #110111;
+    background: var(--bg-color-secondary);
 }
 
 
@@ -196,7 +289,7 @@ header {
 }
 
 .project_card{
-    background: #f0f0f0;
+    background: var(--bg-color);
     border: 1px solid #f0f0f0;
     min-height: min(14em, calc(20vw - 40px));
     width: clamp(15em, 23vw, 30em);
@@ -223,7 +316,7 @@ header {
 
 .project_category{
     font-size: clamp(0.8em, 1vw, 1.2em);
-    color: #110111;
+    color: var(--secondary-color);
 }
 
 
@@ -233,16 +326,18 @@ header {
     text-transform: uppercase;
     font-weight: 800;
     margin-top: clamp(10px, 2vw, 20px);
+    font-size: clamp(0.7em, 1.9vw, 1.3em);;
 }
 
 .project_details a{
     text-decoration: none;
-    color: var(--header-color);
+    color: var(--primary-color);
 }
 
 .project_details a:hover{
-    background: #fff;
-    color: #110111;
+    background: var(--bg-hover-color);
+    color: var(--hover-color);
+    border-radius: 10%;
 }
 
 .contact .icon{
@@ -252,20 +347,28 @@ header {
 footer{
     display: flex;
     justify-content: space-between;
-    color: #110111;
+    color: var(--secondary-color);
     background: #a2a2a2;
     padding: clamp(10px, 2vw, 20px);
 }
 
 .footer_title{
-    font-size: clamp(1.3em, 2vw, 2.5em);
+    font-size: clamp(0.3rem, 0.5rem + 2vw, 2em);
     font-weight: 600;
 }
 
 .footer_title span{
-    color: var(--header-color);
+    color: var(--primary-color);
 }
 
 .footer .contact_icons a{
     color: #f0f0f0;
+    font-size: clamp(0.3rem, 1rem + 1vw, 2rem);
+}
+
+@media only screen and (max-width: 800px){
+  .footer .contact_icons a{
+    padding: clamp(0.5vw, 1vw, 7vw);
+    
+  }
 }
